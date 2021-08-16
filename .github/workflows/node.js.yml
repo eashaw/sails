@@ -16,9 +16,7 @@ jobs:
       redis:
 
         image: redis
-        options:
-          --port 6380
-          --requirepass 'secret'
+        options: "redis-server --port 6380 --requirepass 'secret'"
 
     runs-on: ubuntu-latest
 
