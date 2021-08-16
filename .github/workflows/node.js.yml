@@ -16,6 +16,9 @@ jobs:
       redis:
 
         image: redis
+        options: "redis-server --port 6380 --requirepass 'secret'"
+        ports:
+          - 6379:6380
 
 
     runs-on: ubuntu-latest
@@ -34,4 +37,4 @@ jobs:
 
     - run: npm i --no-audit
     # - run: redis-server --port 6380 --requirepass 'secret'
-    - run: npm test
+    - run: TEST_REDIS_SESSION=true npm test
