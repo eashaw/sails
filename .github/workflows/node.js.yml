@@ -16,7 +16,7 @@ jobs:
       redis:
 
         image: redis
-        options: "redis-server --port 6380 --requirepass 'secret'"
+        options: "--port 6380 --requirepass 'secret'"
         ports:
           - 6379:6380
 
