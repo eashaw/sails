@@ -11,7 +11,11 @@ on:
 
 jobs:
   build:
+    services:
+      # Label used to access the service container
+      redis:
 
+        image: redis
     runs-on: ubuntu-latest
 
     strategy:
