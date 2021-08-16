@@ -16,6 +16,12 @@ jobs:
       redis:
 
         image: redis
+        options:
+          --port 6380
+          --requirepass 'secret'
+        ports:
+          # Maps port 6379 on service container to the host
+          - 6380:6380
     runs-on: ubuntu-latest
 
     strategy:
@@ -30,6 +36,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - run: npm i
-    - run: redis-server --port 6380 --requirepass 'secret'
+    - run: npm i --no-audit
+    # - run: redis-server --port 6380 --requirepass 'secret'
     - run: TEST_REDIS_SESSION=true npm test
