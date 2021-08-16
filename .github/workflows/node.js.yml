@@ -16,7 +16,7 @@ jobs:
       redis:
 
         image: redis
-        options: "-p 6380 -requirepass 'secret'"
+        options: "-p 6380 --requirepass 'secret'"
 
 
     runs-on: ubuntu-latest
