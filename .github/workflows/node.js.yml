@@ -15,8 +15,6 @@ jobs:
       # Label used to access the service container
       redis:
         image: redis
-        options: >-
-          --requirepass 'secret'
         ports:
           - 6380:6380
 
