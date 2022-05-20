@@ -11,6 +11,16 @@ on:
 
 jobs:
   build:
+    services:
+      # Label used to access the service container
+      redis:
+        image: redis
+        options: >-
+          --port 6380
+          --requirepass 'secret'
+        ports:
+          - 6380:6380
+
 
     runs-on: ubuntu-latest
 
@@ -29,5 +39,5 @@ jobs:
     - name: Installing dependencies
       run: npm i --no-audit
 
-    - name: Running tests without Redis
-      run: npm test
+    - name: Running tests
+      run: TEST_REDIS_SESSION=true npm test
